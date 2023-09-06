@@ -8,9 +8,25 @@ Ejemplo: si se ingresa la cadena “EsTO ES UNa cadENA de Texto”, el resultado
 de texto” */
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main()
 {
-    
+    string cadena;
+
+    cout << "Ingrese una cadena de texto la cual sera reformada: \n";
+    getline(cin>>ws, cadena);
+
+    for (int i = 0; i < cadena.length(); i++)
+    {
+        if (i==0)
+            cadena[i]=toupper(cadena[i]);
+        else
+            cadena[i]=tolower(cadena[i]);
+    }
+
+    cout << cadena;
+
+    return 0;
 }
