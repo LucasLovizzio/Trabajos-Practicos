@@ -1,4 +1,5 @@
 /*
+
 Dados los siguientes punteros a char:
 char* x = new char;
 char* z = x;
@@ -15,3 +16,22 @@ g) Permitir al usuario ingresar un char por teclado y almacenarlo en el nuevo es
 h) Si el carácter ingresado por el usuario en el inciso anterior es '*', imprimir "asterisco".
 
 */
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    char* x = new char;
+    char* z = x;
+
+    *x = 'M'; // a)
+    cout << *x; //b)
+    *z = 'P'; //c)
+    cout << *z << " " << *x << endl; // Se imprimira primero P y luego M.
+    //¿Como eliminar el dato apuntado por un puntero? e)
+    x = new char;
+    cout << "Ingrese un caracter para almacenar en x: " , cin >> *x;
+    if (*x=='*')
+        cout << "asterisco";
+}
