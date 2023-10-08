@@ -28,8 +28,7 @@ int main()
 {
     float numeros[MAX];
     int cantidad;
-    do
-    {
+    do{
         cout << "Ingrese la cantidad de numeros a almacenar: ";
         cin >> cantidad;
     } while (cantidad > MAX);
