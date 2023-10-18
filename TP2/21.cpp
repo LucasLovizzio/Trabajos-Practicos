@@ -59,7 +59,7 @@ void agregarSocio(Alumno arreglo[], int &dim_Logica)
     for (int i = 0; i< dim_Logica ; i++)
     {
         cout << arreglo[i].Nombre << ": ";
-        if (arreglo[i].notas.primerCuatri>=5 and arreglo[i].notas.segundoCuatri>=5 and arreglo[i].notas.tercerCuatri>=5){
+        if (arreglo[i].notas.primerCuatri>=5 && arreglo[i].notas.segundoCuatri>=5 && arreglo[i].notas.tercerCuatri>=5){
             cout << "APTO" << endl;
         }
         else{
