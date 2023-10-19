@@ -11,6 +11,9 @@ Nodo * insertarAlFinal(Nodo * inicio, int numero)
 {
     
     Nodo * nuevo = new Nodo;
+    nuevo->dato = numero;
+    nuevo->siguiente = nullptr;
+    
     if (inicio == nullptr){
         inicio = nuevo;
     }
@@ -20,10 +23,8 @@ Nodo * insertarAlFinal(Nodo * inicio, int numero)
             aux = aux->siguiente;
         }
         aux->siguiente = nuevo;
-        nuevo->siguiente = nullptr;
     }
-    nuevo->dato = numero;
-
+    
     return inicio;
 }
 
@@ -45,9 +46,11 @@ int main()
 
     while (numero != 0){
         inicio = insertarAlFinal(inicio , numero);
-        cout << "Ingrese otro numero";
+        cout << "Ingrese otro numero: ";
         cin >> numero;
     }
 
     mostrarLista(inicio);
+    
+    return 0;
 }
