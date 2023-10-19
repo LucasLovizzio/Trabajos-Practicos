@@ -39,7 +39,8 @@ void mostrarLista(Nodo * inicio)
 
 int main()
 {
-    Nodo * inicio  = nullptr;
+    Nodo * inicio  = new Nodo;
+    inicio  = nullptr;
     int numero;
     cout << "Ingrese un numero: ";
     cin >> numero;
