@@ -38,6 +38,34 @@ Nodo * insertarAlFinal(Nodo * inicio, string palabra)
     return inicio;
 }
 
+bool encontrarElemento(Nodo * inicio, string palabra){
+    for (Nodo * aux = inicio ; aux != nullptr ; aux = aux->siguiente){
+        if (aux->palabra == palabra)
+            return true;
+    }
+    return false;
+}
+
+Nodo * ListRepetidas(Nodo * inicio, Nodo * repetidas){
+    Nodo * aux = inicio;
+    Nodo * aux2 = inicio;
+    Nodo * aux3 = repetidas;
+
+    while(aux != nullptr){
+        while(aux2 != nullptr){
+            if (aux->palabra == aux2->palabra && aux != aux2){
+                if (encontrarElemento(repetidas, aux->palabra) == false){
+                    repetidas = insertarAlFinal(repetidas, aux->palabra);
+                }
+            }
+            aux2 = aux2->siguiente;
+        }
+        aux = aux->siguiente;
+        aux2 = inicio;
+    }
+    return repetidas;    
+}
+
 int main(){
     Nodo * inicio = new Nodo;
     inicio = nullptr;
