@@ -51,12 +51,81 @@ Nodo * insertarOrdenado (Nodo * inicio , Nodo * nuevo)
     return inicio;
 }
 
+Nodo * combinarListas(Nodo * lista1 , Nodo * lista2, Nodo * lista3)
+{
+    Nodo * anterior;
+
+    while (lista1 != nullptr)
+    {
+        anterior = lista1;
+        lista1 = lista1->siguiente;
+        anterior->siguiente == nullptr;
+        lista3 = insertarOrdenado(lista3, anterior);
+    }
+    while (lista2 != nullptr)
+    {
+        anterior = lista2;
+        lista2 = lista2->siguiente;
+        anterior->siguiente == nullptr;
+        lista3 = insertarOrdenado(lista3, anterior);
+    }
+    return lista3;
+}
+
+void mostrarLista(Nodo * inicio)
+{
+    cout << "Lista de productos: \n\n";
+    for (Nodo * aux = inicio ; aux != nullptr ; aux = aux->siguiente)
+    {
+        cout << "\t::::::::::\n";
+        cout << "\tCodigo de producto: " << aux->dato.codigoProducto << endl;
+        cout << "\tCantidad vendida: " << aux->dato.cantidadVendida << endl;
+        cout << "\t::::::::::\n";
+    }
+    cout << endl;
+    system("pause");
+}
+
 //Main
 int main()
 {
     Nodo * inicioSuc1 = nullptr;
     Nodo * inicioSuc2 = nullptr;
+    
+    Nodo * Sucursales[2] = {inicioSuc1, inicioSuc2};
     Nodo * listaSucursales = nullptr;
 
-    while()
+    for (int i = 0 ; i < 2 ; i++)
+    {
+        cout << "Usted estara ingresando datos en la lista " << i+1 << endl;
+
+        int codigoProducto, cantidadVendida;
+        cout << "Ingrese el codigo del producto (-1 para cortar): ";
+        cin >> codigoProducto;
+
+        while (codigoProducto != -1)
+        {
+            cout << "Ingrese la cantidad vendida: ";
+            cin >> cantidadVendida;
+
+            Nodo * nuevo = new Nodo;
+            nuevo->dato.codigoProducto = codigoProducto;
+            nuevo->dato.cantidadVendida = cantidadVendida;
+            nuevo->siguiente = nullptr;
+
+            Sucursales[i] = insertarOrdenado(Sucursales[i], nuevo);
+
+            cout << "Ingrese el codigo del producto (-1 para cortar): ";
+            cin >> codigoProducto;
+        }
+    }
+
+    mostrarLista(Sucursales[0]);
+    mostrarLista(Sucursales[1]);
+
+    listaSucursales = combinarListas(inicioSuc1, inicioSuc2, listaSucursales);
+
+    mostrarLista(listaSucursales);
+
+    return 0;
 }
